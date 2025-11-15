@@ -1,16 +1,289 @@
-/* Здесь вы напишете основную часть стилей страницы.
+.site-container {
+  padding-top: 100px;
+  color: var(--text-color, #000000);
+  font-family: var(--page-main-font-family, "Inter", sans-serif);
+  background-color: var(--page-background-color, #ffffff);
+  background-image: var(--page-background-image, none);
+  background-size: cover;
+  background-attachment: fixed;
+  font-variation-settings: "wght" var(--page-main-font-weight, 400);
+  min-width: 320px;
+  min-height: 100dvb;
+}
 
-Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
-✦ like-icon — для svg-иконки анимированного сердца
-✦ card__like-button — для кнопки Like рядом с иконкой
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
-✦ button__text — для обозначения текстового элемента внутри кнопки
+.page__header-section {
+  margin-bottom: 100px;
+}
 
-*/
+.main-heading {
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+}
 
-.page {
-  min-inline-size: 320px;
-  min-block-size: 100dvb;
+.top-section {
+  display: grid;
+  justify-items: center;
+  justify-content: center;
+  font-family: var(--page-accent-font-family, "PressStart2P", fantasy);
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+.main-heading {
+  margin-top: clamp(7.5rem, 7.1479rem + 1.5023vw, 8.5rem);
+  margin-bottom: 20px;
+}
+
+.section-subtitle {
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+}
+
+.main-content {
+  display: grid;
+  justify-items: center;
+  gap: 57px;
+  padding-bottom: 105px;
+}
+
+.posts-grid {
+  display: grid;
+  gap: 52px;
+}
+
+.content-block {
+  margin: 0 auto;
+  border: 2px solid var(--text-color, #000000);
+  background: var(--page-background-color, #ffffff);
+  max-width: 696px;
+}
+
+.content-block__title-section {
+  border-bottom: 2px solid var(--text-color, #000000);
+  padding: 4px 10px;
+}
+
+.content-block__heading {
+  font-size: 18px;
+  line-height: normal;
+  font-variation-settings: "wght" var(--headings-font-weight, 700);
+}
+
+.content-block__media-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.content-block__media-label {
+  position: absolute;
+  z-index: 1;
+  opacity: 0.5;
+  color: var(--text-color, #000000);
+  font-family: var(--page-accent-font-family, "PressStart2P", fantasy);
+  font-size: 14px;
+  line-height: normal;
+  text-transform: uppercase;
+  text-shadow: 0 0 1px var(--page-background-color, #ffffff);
+  right: 13px;
+  top: 24px;
+  mix-blend-mode: hard-light;
+}
+
+.content-block__media {
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+.content-block__description {
+  display: grid;
+  gap: 27px;
+  border-top: 2px solid var(--text-color, #000000);
+  padding: 25px 30px 0 25px;
+  font-size: 18px;
+  line-height: calc(21 / 18);
+}
+
+.filter-grayscale {
+  filter: grayscale(70%);
+}
+
+.filter-multiple {
+  filter: contrast(50%) hue-rotate(35deg) saturate(130%);
+}
+
+.filter-hue-rotate {
+  filter: hue-rotate(210deg);
+}
+
+.filter-saturate {
+  filter: saturate(250%);
+}
+
+.filter-invert {
+  filter: invert(100%);
+}
+
+.filter-sepia {
+  filter: sepia(90%);
+}
+
+.filter-blur {
+  filter: blur(10px);
+}
+
+
+.content-block__controls {
+  display: flex;
+  justify-content: end;
+  align-items: stretch;
+  gap: 5px;
+  padding: 25px 25px 23px 25px;
+}
+
+.card__icon-button {
+  display: grid;
+  border: 2px solid transparent;
+  padding: 0;
+  background: transparent;
+  transition: border-color 0.3s ease;
+  cursor: pointer;
+  appearance: none;
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  border-color: var(--text-color, #000000);
+}
+
+.button {
+  position: relative;
+  z-index: 1;
+  border: 2px solid var(--text-color, #000000);
+  padding: 10px 36px;
+  font-family: var(--page-accent-font-family, "PressStart2P", fantasy);
+  font-size: 14px;
+  text-transform: inherit;
+  background: var(--page-background-color, #ffffff);
+  transition: box-shadow 0.3s ease;
+  cursor: pointer;
+  appearance: none;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:focus-visible {
+  box-shadow: 2px 2px 0px 0px var(--text-color, #000000);
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--text-color, #000000);
+  transition: transform 0.5s ease-in-out;
+  transform: scaleX(0);
+  transform-origin: left;
+  width: 100%;
+  height: 100%;
+}
+
+.button:hover::before {
+  transform: scaleX(1);
+}
+
+.button--save {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 20px;
+}
+
+.button__text,
+.button__icon {
+  color: var(--button-text-color, #ffffff);
+  mix-blend-mode: difference;
+}
+
+.button__icon {
+  height: 22px;
+  width: 22px;
+}
+
+.like-icon {
+  height: 36px;
+  width: 39px;
+}
+
+.modal-window {
+  border: 2px solid var(--text-color, #000000);
+  padding: 25px 30px;
+  color: var(--text-color, #000000);
+  font-family: var(--page-accent-font-family, "PressStart2P", fantasy);
+  line-height: 1.5;
+  text-transform: uppercase;
+  background: var(--page-background-color, #ffffff);
+  max-width: 355px;
+}
+
+.modal-window[open] {
+  display: grid;
+  grid-template-rows: repeat(2, min-content);
+  gap: 30px;
+}
+
+.modal-window::backdrop {
+  opacity: 0.75;
+  background: var(--color-black, #000000);
+}
+
+.modal-window__content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.modal-window__icon {
+  flex-shrink: 0;
+  width: 39px;
+  height: 39px;
+}
+
+.modal-window__btn {
+  width: 100%;
+}
+
+@media (width < 376px) {
+  .modal-window {
+    padding: 28px 34px 28px 40px;
+    max-width: 340px;
+  }
+
+  .button--save {
+    flex-direction: column;
+  }
+
+  .button__icon {
+    height: 28px;
+    width: 28px;
+  }
+}
+
+@supports (
+  (-webkit-text-stroke: 1px var(--page-background-color, #ffffff)) or
+    (text-stroke: 1px var(--page-background-color, #ffffff))
+) {
+  .content-block__media-label {
+    text-shadow: none;
+    -webkit-text-stroke: 1px var(--page-background-color, #ffffff);
+    text-stroke: 1px var(--page-background-color, #ffffff);
+  }
 }
